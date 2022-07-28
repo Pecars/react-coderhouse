@@ -1,10 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
-import NavBar from './componentes/NavBar';
+import Header from './componentes/Header';
+import ItemListContainer from './componentes/ItemListContainer';
+
 
 function App() {
   return (
-    <NavBar/>
+    <>
+    <Header/>
+    <ItemListContainer nombre = "Pepe"/>
+    </>
   );
 }
 
