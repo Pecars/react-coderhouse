@@ -1,9 +1,12 @@
 import NavBar from "./NavBar";
 
-function CardWidget() {
+function Header() {
+
+
     return (
         <NavBar/>
+     
     )
 }
 
-export default CardWidget
+export default Header

@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    }
+
+.header{
+    
+    background-color: blue;
+    display: flex; 
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 0.5rem 1rem black;
+    align-items: center;
+
+        &__image {
+                width: 24px;
+                height: 24px;
+
+        }
+    }
+
+
+
+.button{
+
+    &__carrito{
+
+        height: 24px;
+        width: 24px;
+    }
+}
