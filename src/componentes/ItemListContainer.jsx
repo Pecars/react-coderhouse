@@ -1,4 +1,5 @@
 import ItemCount from "./ItemCount";
+import ItemList from "./ItemList"
 
 function ItemListContainer(props) {
   return (
@@ -7,6 +8,7 @@ function ItemListContainer(props) {
             <p>hola {props.nombre}</p>
             <p>Añade productos</p>
             <ItemCount stock={15} initial={4}/>
+            <ItemList/>
         </div>
     </>
   );

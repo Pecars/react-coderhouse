@@ -7,7 +7,6 @@ function ItemCount(props) {
     //aumentar contador
     const aumentarContador = () => {
 
-        console.log("entra a aumentar contador")
         if(contador < props.stock){ 
             setContador(contador + 1)
         }
@@ -17,7 +16,6 @@ function ItemCount(props) {
     const disminuirContador =()=>{
         if(contador > 0){
             setContador(contador-1)
-            console.log(contador)
         } 
     }
 
