@@ -3,6 +3,7 @@ import { useState } from "react"
 function ItemCount(props) {  
 
     const [contador, setContador] = useState(props.initial)
+    console.log(props.initial)
     
     //aumentar contador
     const aumentarContador = () => {
@@ -22,9 +23,9 @@ function ItemCount(props) {
     return (
         <>
         <div className="caja-contador-botones">
-            <button className="button__carrito" onClick={aumentarContador}>+</button>
-            <div className="caja-contador">{contador}</div>
-            <button className="button__carrito" onClick={disminuirContador}>-</button>
+            <button className="button__carrito elementos-contador" onClick={aumentarContador}>+</button>
+            <div className="caja-contador elementos-contador">{contador}</div>
+            <button className="button__carrito elementos-contador" onClick={disminuirContador}>-</button>
         </div>
         <div className="boton-agregar-item">Agregar al carrito</div>
         </>

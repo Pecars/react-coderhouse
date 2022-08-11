@@ -31,3 +31,29 @@
         width: 24px;
     }
 }
+
+.producto-container{
+
+    background-color: aquamarine;
+    height: 350px;
+    width: 280px;
+    padding: 15px;
+    margin: 30px
+}
+
+.item-list-container{
+
+    display: flex;
+}
+
+.caja-contador-botones{
+
+    background-color: beige;
+    display: left;
+    height: 50px;
+    width: 200px
+}
+
+.elementos-contador{
+    display: inline-flex
+}
