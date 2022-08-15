@@ -65,4 +65,9 @@
   background-color: aquamarine;
 }
 
+.cart__button {
+  display: flex;
+  float: right;
+}
+
 /*# sourceMappingURL=estilos.css.map */

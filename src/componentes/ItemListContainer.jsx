@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { AuxiliarFetch } from "../AuxiliarFetch";
 import {products} from "./productos"
 import CircularProgress from '@mui/material/Button';
-import { useParams } from "react-router-dom";
+import Button from '@mui/material/Button';
+import { useParams, Link } from "react-router-dom";
 
 function ItemListContainer(props) {
   console.log(CircularProgress)
@@ -18,7 +19,7 @@ function ItemListContainer(props) {
       if(id == undefined){
       AuxiliarFetch(products).then(data => setItemes(data))
       }else{
-        AuxiliarFetch(products).then(data => setItemes(data.filter(item =>item.categoria== id)))
+      AuxiliarFetch(products).then(data => setItemes(data.filter(item =>item.categoria== id)))
 
       }
     }, [id]);
@@ -31,6 +32,9 @@ console.log(itemes)
             <ItemCount stock={15} initial={4}/>
             {!loading && <CircularProgress/>}
             {loading && <ItemList itemes={itemes}/>}
+        </div>
+        <div  class="cart__button" >
+          <Button variant="contained"> <div><Link to="/cart">Finalizar compra</Link></div></Button>
         </div>
     </>
   );

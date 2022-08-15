@@ -1,12 +1,25 @@
-import { MenuItemOption } from "@chakra-ui/react";
-import { Image, Button } from "react-bootstrap";
+import { Button } from "@mui/material";
+import { Image } from "react-bootstrap";
 import ItemCount from "./ItemCount";
-import {Route, Redirect, useState} from "react"
+import {Route, Redirect, useState, useEffect} from "react"
 import ItemDetailContainer from "./ItemDetailContainer";
+import {Link} from "react-router-dom"
 
 function ItemDetail(item) {
-  console.log(item)
-  console.log(item.item.id)
+ 
+  const [contadorDetail, setContadorDetail] = useState(0)
+
+
+  const customMethod = (param) => {
+    setContadorDetail(param)
+  }
+  const onAdd=(e)=>{
+
+    console.log("reacciona al evento")
+    setContadorDetail(contadorDetail)
+    console.log(e.target)
+
+  }
 
     return (
       <>
@@ -17,9 +30,15 @@ function ItemDetail(item) {
             <div className="price-container"id = "precio-item">Precio: {item.item.precio}</div>
             <Image className="image-container" src={item.item.foto} width="150" height="150" alt="foto producto"/>
             <br/>
-            <ItemCount stock={item.item.stock} initial={0}/>
+            <div> 
+              <ItemCount stock={item.item.stock} initial={0} contadorDetail={contadorDetail} customMethod={customMethod}/>
+            </div>
             
         </div>
+        <div  class="cart__button" >
+          <Button variant="contained"> <div><Link to="/cart" onClick={onAdd}>Finalizar compra</Link></div></Button>
+        </div>
+       
       </> 
     );
   }
