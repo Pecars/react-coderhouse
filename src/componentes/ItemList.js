@@ -2,7 +2,7 @@ import Item from "./Item"
 
 
 const ItemList =({itemes})=> {
-  
+  //console.log(itemes)
     return (
       <>
       <div className="item-list-container">

@@ -45,4 +45,24 @@
   display: inline-flex;
 }
 
+.navbar {
+  background-color: aquamarine;
+}
+.navbar__title {
+  display: flex;
+  float: left;
+  font-family: serif;
+  font-size: 20px;
+}
+.navbar__categories {
+  display: flex;
+  float: right;
+  font-family: serif;
+  font-size: 18px;
+  margin: 18px;
+}
+.navbar__main {
+  background-color: aquamarine;
+}
+
 /*# sourceMappingURL=estilos.css.map */

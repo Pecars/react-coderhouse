@@ -2,9 +2,12 @@ import { Image, Button } from "react-bootstrap";
 import ItemCount from "./ItemCount";
 import { useState } from "react";
 import ItemDetailContainer from "./ItemDetailContainer";
+import {NavLink} from "react-router-dom"
 
 const Item = ({item}) => {
   const [pulsado, setPulsado] = useState(false);
+
+  const url = "/item/"+item.id;
 
   console.log(item)
     return (
@@ -16,12 +19,7 @@ const Item = ({item}) => {
             <Image className="image-container" src={item.foto} width="150" height="150" alt="foto producto"/>
             <br/>
             <ItemCount stock={item.stock} initial={0}/>
-            <Button onClick = {() => setPulsado(!pulsado)}> Ver detalles</Button>
-                {pulsado ? (
-                  <ItemDetailContainer props={item} />
-                ) : (
-                  <p></p>
-                )}
+            <Button onClick = {() => setPulsado(!pulsado)}> <NavLink to={url}>ver detalle</NavLink></Button>
             
         </div>
       </>

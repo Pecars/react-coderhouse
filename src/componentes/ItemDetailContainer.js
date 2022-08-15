@@ -1,18 +1,26 @@
 
 import{useEffect, useState} from "react";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, listItemTextClasses } from "@mui/material";
 import { AuxiliarFetch } from "../AuxiliarFetch";
 import {products} from "./productos";
 import ItemDetail from "./ItemDetail"
+import { useParams } from "react-router-dom";
 
 function ItemDetailContainer(item) {
+
 item = item.props
-console.log(item)
+const [itemes, setItemes] = useState([]);
+const {id} = useParams();
+
+useEffect(()=>{
+  AuxiliarFetch(products).then(data => setItemes(data.find(item =>item.id== id)))
+},[id])
+ 
 
   return (
     <>
         <div className='container'> 
-            <ItemDetail item={item}/>
+            <ItemDetail item={itemes}/>
         </div>
     </>
   );

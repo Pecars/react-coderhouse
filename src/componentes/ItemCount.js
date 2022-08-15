@@ -3,7 +3,7 @@ import { useState } from "react"
 function ItemCount(props) {  
 
     const [contador, setContador] = useState(props.initial)
-    console.log(props.initial)
+    //console.log(props.initial)
     
     //aumentar contador
     const aumentarContador = () => {
