@@ -1,9 +1,8 @@
 import { useState } from "react"
 
-function ItemCount({stock, initial, contadorDetail, customMethod}) {  
+function ItemCount({stock, initial, customMethod}) {  
 
     const [contador, setContador] = useState(initial)
-    //console.log(props.initial)
     
     //aumentar contador
     const aumentarContador = () => {
@@ -23,10 +22,8 @@ function ItemCount({stock, initial, contadorDetail, customMethod}) {
     }
 
     const onAdd =(e)=>{
-        console.log(e)
 
         customMethod(contador);
-        console.log(contadorDetail)
         console.log(contador)
     }
 
