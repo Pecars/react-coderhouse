@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-
+import CartWidget from "./CartWidget";
 
 const NavBar = (parametros) => {
 
@@ -23,9 +23,10 @@ const NavBar = (parametros) => {
               <div class="navbar__categories"><NavLink to="/category/pañuelos">Pañuelos</NavLink></div>
               </Typography>
               <Button color="inherit">          <NavLink to="/cart">
-                <span className="material-symbols-outlined">
+                <CartWidget/>
+                {/*<span className="material-symbols-outlined">
                   shopping_cart
-                </span>
+                </span>*/}
               </NavLink></Button>
             </Toolbar>
           </AppBar>

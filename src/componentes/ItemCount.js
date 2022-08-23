@@ -1,8 +1,8 @@
 import { useState } from "react"
 
-function ItemCount({stock, initial, customMethod}) {  
+function ItemCount({stock, initial, onAdd}) {  
 
-    const [contador, setContador] = useState(initial)
+    const [contador, setContador] = useState(initial);
     
     //aumentar contador
     const aumentarContador = () => {
@@ -21,13 +21,10 @@ function ItemCount({stock, initial, customMethod}) {
         } 
     }
 
-    const onAdd =(e)=>{
-
-        customMethod(contador);
-        console.log(contador)
+    // confirmar
+    const confirm =()=>{
+        onAdd(contador)
     }
-
-  
 
     return (
         <>
@@ -36,7 +33,7 @@ function ItemCount({stock, initial, customMethod}) {
             <div className="caja-contador elementos-contador">{contador}</div>
             <button className="button__carrito elementos-contador" onClick={disminuirContador}>-</button>
         </div>
-        <div className="boton-agregar-item" onClick={onAdd}>Agregar al carrito</div>
+        <div className="boton-agregar-item" onClick={confirm}>Agregar al carrito</div>
         </>
     )
 }

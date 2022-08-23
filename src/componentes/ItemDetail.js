@@ -1,24 +1,26 @@
 import { Button } from "@mui/material";
 import { Image } from "react-bootstrap";
 import ItemCount from "./ItemCount";
-import {Route, Redirect, useState, useEffect} from "react"
+import {Route, Redirect, useState, useEffect, useContext} from "react"
 import ItemDetailContainer from "./ItemDetailContainer";
 import {Link} from "react-router-dom"
+import { contexto } from "./CartContext"
+
 
 function ItemDetail(item) {
+  console.log(item)
  
-  const [contadorDetail, setContadorDetail] = useState(0)
+  const { agregarProducto } = useContext(contexto)
 
-
-  const customMethod = (param) => {
-    setContadorDetail(param)
-  }
-  const onAdd=(e)=>{
+  const onAdd=(contador)=>{
 
     console.log("reacciona al evento")
-    setContadorDetail(contadorDetail)
-    console.log(e.target)
+    item.item.cantidad = contador
+    agregarProducto(item)
+    console.log(item)
+    console.log(item.item.cantidad)
 
+    console.log(contexto)
   }
 
     return (
@@ -31,7 +33,7 @@ function ItemDetail(item) {
             <Image className="image-container" src={item.item.foto} width="150" height="150" alt="foto producto"/>
             <br/>
             <div> 
-              <ItemCount stock={item.item.stock} initial={0} contadorDetail={contadorDetail} customMethod={customMethod}/>
+              <ItemCount stock= {item.item.stock} initial={0} onAdd= {onAdd}/>
             </div>
             
         </div>

@@ -6,9 +6,8 @@ import {products} from "./productos";
 import ItemDetail from "./ItemDetail"
 import { useParams } from "react-router-dom";
 
-function ItemDetailContainer(item) {
+function ItemDetailContainer() {
 
-item = item.props
 const [itemes, setItemes] = useState([]);
 const {id} = useParams();
 
