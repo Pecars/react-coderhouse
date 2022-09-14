@@ -10,6 +10,7 @@ const Item = ({item}) => {
   const url = "/item/"+item.id;
 
   console.log(item)
+  console.log(item.descripcion)
     return (
       <>
       <div className="producto-container">

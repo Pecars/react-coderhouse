@@ -9,16 +9,18 @@ import { contexto } from "./CartContext"
 
 function ItemDetail(item) {
   console.log(item)
+
+  item= item.item
  
   const { agregarProducto } = useContext(contexto)
 
   const onAdd=(contador)=>{
 
     console.log("reacciona al evento")
-    item.item.cantidad = contador
-    agregarProducto(item.item)
+    item.cantidad = contador
+    agregarProducto(item)
     console.log(item)
-    console.log(item.item.cantidad)
+    console.log(item.cantidad)
 
     console.log(contexto)
   }
@@ -28,14 +30,14 @@ function ItemDetail(item) {
       
       <div className="producto-container">
         
-            <div className="title-container" id= "titulo-item">{item.item.titulo}</div>
-            <div className="id-container" id = "id-item">{item.item.id}</div>
-            <div className="descripcion" id="descripcion-item">{item.item.descripcion}</div>
-            <div className="price-container"id = "precio-item">Precio: {item.item.precio}</div>
-            <Image className="image-container" src={item.item.foto} width="150" height="150" alt="foto producto"/>
+            <div className="title-container" id= "titulo-item">{item.titulo}</div>
+            <div className="id-container" id = "id-item">{item.id}</div>
+            <div className="descripcion" id="descripcion-item">{item.descripcion}</div>
+            <div className="price-container"id = "precio-item">Precio: {item.precio}</div>
+            <Image className="image-container" src={item.foto} width="150" height="150" alt="foto producto"/>
             <br/>
             <div> 
-              <ItemCount stock= {item.item.stock} initial={0} onAdd= {onAdd}/>
+              <ItemCount stock= {item.stock} initial={0} onAdd= {onAdd}/>
             </div>
             
         </div>

@@ -6,6 +6,11 @@ import {products} from "./productos"
 import CircularProgress from '@mui/material/CircularProgress';
 import Button from '@mui/material/Button';
 import { useParams, Link } from "react-router-dom";
+import {db} from "../firebase"
+import { collection, getDocs } from "firebase/firestore";
+
+
+const productosCollection = collection(db, "productos")
 
 function ItemListContainer(props) {
   console.log(CircularProgress)
@@ -16,6 +21,20 @@ function ItemListContainer(props) {
   
 
     useEffect(() => {
+      const consulta = getDocs(productosCollection);
+      
+      consulta.then(snapshot=>{
+        const productos = snapshot.docs.map(doc=>{
+          return{
+            ...doc.data(), 
+            id: doc.id
+          }
+        })
+        setItemes(productos)
+        setTimeout(() => {setLoading(false)}, 2000);
+
+      })
+/*
       setTimeout(() => {setLoading(false)}, 2000);
       if(id == undefined){
       AuxiliarFetch(products).then(data => setItemes(data))
@@ -23,8 +42,9 @@ function ItemListContainer(props) {
       AuxiliarFetch(products).then(data => setItemes(data.filter(item =>item.categoria== id)))
       }
      
-    }, [id]);
+    */}, [id]);
 console.log(itemes)
+
   return (
     <>
         <div className='container'>  
