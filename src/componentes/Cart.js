@@ -12,7 +12,7 @@ const Cart = () => {
 
     return (
             <>
-             {!carritoVacio && carrito.map((item, index) => {
+             {carritoVacio && carrito.map((item, index) => {
                 return  <div class="producto">
 
             <div className="producto-container">
@@ -25,7 +25,7 @@ const Cart = () => {
             </div>
                     </div>
               })}
-              {carritoVacio &&
+              {!carritoVacio &&
                 <>
                     <div>            
                         <h2>Carrito vacío</h2>                           
