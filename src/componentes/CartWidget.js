@@ -1,17 +1,20 @@
 import { useContext } from "react"
-import { contexto } from "./CartContext"
+import { contexto} from "./CartContext"
+import {Badge} from "@mui/material"
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"
 
 function CartWidget() {
 
-  const { cantidad } = useContext(contexto);
+ const { cantidad } = useContext(contexto);
+
   
  console.log(cantidad)
     return (
         <>
         <p>
-         {/**<img src="/carrito.jpg" alt="carrito"/> */}
-         <span className="material-symbols-outlined header__image"> shopping_cart</span>
-         {cantidad}
+         <Badge badgeContent = {cantidad}>
+          <ShoppingCartIcon/>
+         </Badge>
          </p>
         </>
     );

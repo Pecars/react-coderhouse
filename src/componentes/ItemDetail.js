@@ -16,7 +16,7 @@ function ItemDetail(item) {
 
     console.log("reacciona al evento")
     item.item.cantidad = contador
-    agregarProducto(item)
+    agregarProducto(item.item)
     console.log(item)
     console.log(item.item.cantidad)
 
@@ -25,7 +25,9 @@ function ItemDetail(item) {
 
     return (
       <>
+      
       <div className="producto-container">
+        
             <div className="title-container" id= "titulo-item">{item.item.titulo}</div>
             <div className="id-container" id = "id-item">{item.item.id}</div>
             <div className="descripcion" id="descripcion-item">{item.item.descripcion}</div>
@@ -46,4 +48,3 @@ function ItemDetail(item) {
   }
   
   export default ItemDetail;
-  

@@ -11,34 +11,38 @@ const CartContext = (props) => {
 
     const agregarProducto = (item) => {
 
-        setCantidad(cantidad + item.item.cantidad)
+        //const nuevoItem = [...item, cantidad]
 
-        console.log(carrito.length)
-        console.log(item.item)
-        if(carrito.length===0){
-            setCarrito(carrito.push(item.item))
-            console.log("entra")
-            console.log(carrito)
-        }else{
-            const index = carrito.findIndex(producto => producto.id === item.item.id)
-            if(index>= 0){
-                setCarrito(carrito.push(item.item))
-            }else{
-                let producto = carrito.find(producto => producto.id === item.item.id)
-                console.log(producto)
+        setCantidad(cantidad + item.cantidad)
 
-                producto.cantidad = producto.cantidad+ cantidad; 
-                setCarrito(carrito.splice(index, index+1))
-                setCarrito(carrito.push(producto))
-            }
-        }
         console.log(carrito)
+        console.log(item)
 
+        if (estaAgregado(item.id)) {
+            const findProduct = carrito.find(x => x.id === item.id)
+            
+            const productIndex = carrito.indexOf(findProduct)
+            const auxArray = [...carrito]
+            auxArray[productIndex].cantidad += cantidad
+            setCarrito(auxArray)
+        } else {
+            let carritoAuxiliar =  [...carrito, item]
+            console.log(carritoAuxiliar)
+            setCarrito([carritoAuxiliar])
+            console.log(item)
+            console.log(carrito)
+
+        }
+    }
+
+    const estaAgregado = (id) => {
+
+        return carrito.some(x => x.id === id)
     }
 
     const eliminarProducto = (item) => {
 
-        const index = carrito.findIndex(producto => producto.id === item.item.id)
+        const index = carrito.findIndex(producto => producto.id === item.id)
         setCarrito(carrito.splice(index, index+1))
         
     }
@@ -47,13 +51,25 @@ const CartContext = (props) => {
         setCarrito([])
     }
 
+    const precioTotal =() => {
+        return carrito.reduce((acc, x) => acc += x.cantidad * x.precio, 0)
+        
+    }
+     const carritoVacio = (carrito) => {
 
+        if (carrito !== []){
+            return false
+        }
+     }
   
     const valorDelContexto = {
         cantidad: cantidad,
         carrito : carrito,
         agregarProducto,
         eliminarProducto,
+        vaciarCarrito, 
+        precioTotal, 
+        carritoVacio
     }
 
     return(

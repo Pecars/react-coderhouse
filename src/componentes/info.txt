@@ -1,0 +1,18 @@
+        /*
+        if(carrito.length===0){
+            setCarrito([...carrito, item.item])
+            console.log("entra")
+            console.log(carrito)
+        }else{
+            const index = carrito.findIndex(producto => producto.id === item.item.id)
+            if(index>= 0){
+                setCarrito(carrito.push(item.item))
+            }else{
+                let producto = carrito.find(producto => producto.id === item.item.id)
+                console.log(producto)
+
+                producto.cantidad = producto.cantidad+ cantidad; 
+                setCarrito(carrito.splice(index, index+1))
+                setCarrito(carrito.push(producto))
+            }
+        }*/
