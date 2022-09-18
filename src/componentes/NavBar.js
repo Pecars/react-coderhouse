@@ -8,6 +8,11 @@ import Button from '@mui/material/Button';
 import CartWidget from "./CartWidget";
 import { AuxiliarFetch } from "../AuxiliarFetch";
 import { products } from "./productos";
+import {db} from "../firebase"
+import { collection, getDocs } from "firebase/firestore";
+
+
+const productosCollection = collection(db, "productos")
 
 const NavBar = (parametros) => {
 
@@ -15,8 +20,24 @@ const NavBar = (parametros) => {
 
   useEffect(
     ()=>{
+
+      const consulta = getDocs(productosCollection);
+      
+      consulta.then(snapshot=>{
+        const productos = snapshot.docs.map(doc=>{
+          return{
+            ...doc.data(), 
+            id: doc.id
+          }
+        })
+        const arrayCategorias = productos.map(x => x.categoria)
+        setNavLinks([...new Set(arrayCategorias)])
+      })
+
+      console.log(navLinks)
+      /*
       AuxiliarFetch(products).then(parsedArray => parsedArray.map(x=> x.categoria))
-      .then(arrayCategorias => setNavLinks([...new Set(arrayCategorias)]))
+      .then(arrayCategorias => setNavLinks([...new Set(arrayCategorias)]))*/
     },[]
   )
 

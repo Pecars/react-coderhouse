@@ -28,7 +28,7 @@ const CartContext = (props) => {
         } else {
             let carritoAuxiliar =  [...carrito, item]
             console.log(carritoAuxiliar)
-            setCarrito([carritoAuxiliar])
+            setCarrito(carritoAuxiliar)
             console.log(item)
             console.log(carrito)
 

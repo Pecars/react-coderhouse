@@ -31,7 +31,17 @@ function ItemListContainer(props) {
           }
         })
         setItemes(productos)
-        setTimeout(() => {setLoading(false)}, 2000);
+
+        if(id == undefined){
+          setItemes(productos)
+          setTimeout(() => {setLoading(false)}, 2000);
+
+        }else{
+          setItemes(productos.filter(item =>item.categoria==id))
+          setTimeout(() => {setLoading(false)}, 2000);
+
+        }
+        
 
       })
 /*
