@@ -39,3 +39,4 @@ npm start
 * Firebase 9.9.4: Utilizada para almacenar los datos de los productos
 * Toastify: Utilizada para la generación de alertas
 * React hooks forms: Utilizada para la implementación de un formulario de datos de usuario
+* Sass-loader ^12.3.0: Utilizada para compilar estilos

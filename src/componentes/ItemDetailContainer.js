@@ -1,7 +1,5 @@
 import{useEffect, useState} from "react";
-import { CircularProgress, listItemTextClasses } from "@mui/material";
-import { AuxiliarFetch } from "../AuxiliarFetch";
-import {products} from "./productos";
+import { CircularProgress } from "@mui/material";
 import ItemDetail from "./ItemDetail"
 import { useParams } from "react-router-dom";
 import {db} from "../firebase"
@@ -33,7 +31,6 @@ useEffect(()=>{
  
 
   })
-  /*AuxiliarFetch(products).then(data => setItemes(data.find(item =>item.id== id)))*/
 },[id])
  
 

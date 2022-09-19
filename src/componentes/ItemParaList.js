@@ -1,9 +1,8 @@
 import { Image, Button } from "react-bootstrap";
-import ItemCount from "./ItemCount";
 import { useState } from "react";
 import {NavLink} from "react-router-dom"
 
-const Item = ({item}) => {
+const ItemParaList = ({item}) => {
   const [pulsado, setPulsado] = useState(false);
 
   const url = "/item/"+item.id;
@@ -16,7 +15,6 @@ const Item = ({item}) => {
             <div className="image-container"> <Image className="imagen" src={item.foto} width="150" height="150" alt="foto producto"/></div>
            
             <br/>
-            <ItemCount stock={item.stock} initial={0}/>
             <Button onClick = {() => setPulsado(!pulsado)}> <NavLink to={url}>ver detalle</NavLink></Button>
             
         </div>
@@ -24,5 +22,5 @@ const Item = ({item}) => {
     );
   }
   
-  export default Item;
+  export default ItemParaList;
   

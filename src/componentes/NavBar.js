@@ -6,10 +6,9 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import CartWidget from "./CartWidget";
-import { AuxiliarFetch } from "../AuxiliarFetch";
-import { products } from "./productos";
 import {db} from "../firebase"
 import { collection, getDocs } from "firebase/firestore";
+
 
 
 const productosCollection = collection(db, "productos")
@@ -34,36 +33,35 @@ const NavBar = (parametros) => {
         setNavLinks([...new Set(arrayCategorias)])
       })
 
-      console.log(navLinks)
-      /*
-      AuxiliarFetch(products).then(parsedArray => parsedArray.map(x=> x.categoria))
-      .then(arrayCategorias => setNavLinks([...new Set(arrayCategorias)]))*/
+
     },[]
   )
 
+
+
+  
       return (        
         <>
-        <div class="navbar__main">
-        <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="static">
-            <Toolbar>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              <div class="navbar__title"> <NavLink to="/"><h1>Tienda </h1></NavLink></div>
 
-              {navLinks.map((element, index) => {
-                return  <div class="navbar__categories"><NavLink to= {`/category/${element}`} key = {index}>{element}</NavLink></div>
-              })}
-              </Typography>
-              <Button color="inherit">          <NavLink to="/cart">
-                <CartWidget/>
-                {/*<span className="material-symbols-outlined">
-                  shopping_cart
-                </span>*/}
-              </NavLink></Button>
-            </Toolbar>
-          </AppBar>
-        </Box>
-        </div>
+
+          <div class="navbar__main">
+          <Box sx={{ flexGrow: 1 }}>
+            <AppBar position="static">
+              <Toolbar>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                <div className="navbar-title"> <NavLink className= "titulo-tienda" to="/">Tienda </NavLink></div>
+
+                {navLinks.map((element, index) => {
+                  return  <div class="navbar__categories"><NavLink to= {`/category/${element}`} key = {index}>{element}</NavLink></div>
+                })}
+                </Typography>
+                <Button color="inherit">          <NavLink to="/cart">
+                  <CartWidget/>
+                </NavLink></Button>
+              </Toolbar>
+            </AppBar>
+          </Box>
+          </div>
    
  
         </>

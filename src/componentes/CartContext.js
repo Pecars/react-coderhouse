@@ -15,8 +15,6 @@ const CartContext = (props) => {
 
         setCantidad(cantidad + item.cantidad)
 
-        console.log(carrito)
-        console.log(item)
 
         if (estaAgregado(item.id)) {
             const findProduct = carrito.find(x => x.id === item.id)
@@ -27,10 +25,7 @@ const CartContext = (props) => {
             setCarrito(auxArray)
         } else {
             let carritoAuxiliar =  [...carrito, item]
-            console.log(carritoAuxiliar)
             setCarrito(carritoAuxiliar)
-            console.log(item)
-            console.log(carrito)
 
         }
     }
@@ -40,28 +35,20 @@ const CartContext = (props) => {
         return carrito.some(x => x.id === id)
     }
 
-    const eliminarProducto = (item) => {
-
-        const index = carrito.findIndex(producto => producto.id === item.id)
-        setCarrito(carrito.splice(index, index+1))
-        
-    }
-
     const vaciarCarrito = () => {
         setCarrito([])
+        setCantidad(0)
     }
 
     const precioTotal =() => {
         return carrito.reduce((acc, x) => acc += x.cantidad * x.precio, 0)
         
     }
-     const carritoVacio = (carrito) => {
 
-        if (carrito !== []){
-            return false
-        }
-     }
-  
+    const eliminarProducto = (id) => {
+        return setCarrito(carrito.filter(x => x.id !== id))
+    }
+
     const valorDelContexto = {
         cantidad: cantidad,
         carrito : carrito,
@@ -69,7 +56,7 @@ const CartContext = (props) => {
         eliminarProducto,
         vaciarCarrito, 
         precioTotal, 
-        carritoVacio
+        
     }
 
     return(

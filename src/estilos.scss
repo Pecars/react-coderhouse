@@ -35,8 +35,8 @@
 .producto-container{
 
     background-color: aquamarine;
-    height: 350px;
-    width: 280px;
+    max-height: 350px;
+    max-width: 280px;
     padding: 15px;
     margin: 30px
 }
@@ -63,10 +63,10 @@
     background-color: aquamarine;
     
     &__title {
-        display: flex;
-        float: left;
+        display: inline-block;
         font-family: serif;
         font-size: 20px;
+        text-align : center;
     }
 
     &__categories{
@@ -93,3 +93,75 @@
     }
 }
 
+.form-page{
+
+    display: grid; 
+    float: right;
+    font-family: serif;
+    font-size: 18px; 
+    margin: 18px;
+
+    &__element{
+
+        margin: 3%;
+    }
+
+}
+
+.imagen{
+
+    object-fit: scale-down;
+    align-self: center;
+    display: block;
+}
+
+.image-container{
+    text-align : center;
+}
+
+.titulo-tienda{
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    size: 25px;
+    color: green($color: #255123);
+    text-align: center;
+}
+
+.checkout-container{
+
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    max-width: 95%;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+}
+
+.checkout-container__son{
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-width: 100%;
+}
+
+.checkout-container__secondary{
+    max-width: 98%;
+    
+}
+
+.checkout-container__tertiary{
+
+    max-width: 30%;
+    
+}
+
+.total{
+
+    font-size: large;
+    background-color: #7cd777;
+    size: 300px;
+    align-items: center;
+}

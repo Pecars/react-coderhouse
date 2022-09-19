@@ -1,12 +1,11 @@
-import Item from "./Item"
+import ItemParaList from "./ItemParaList"
 
 
 const ItemList =({itemes})=> {
-  console.log(itemes)
     return (
       <>
       <div className="item-list-container">
-      {itemes.map(item => <Item key ={item.id} item={item}/>)}
+      {itemes.map(item => <ItemParaList key ={item.id} item={item}/>)}
       </div>
       
       </>

@@ -1,9 +1,9 @@
 import './App.css';
-import Header from './componentes/Header';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Main from "./componentes/Main"
 import CartContext from './componentes/CartContext';
 import Cart from './componentes/Cart';
+import NavBar from './componentes/NavBar';
 
 
 
@@ -12,9 +12,8 @@ function App() {
     <>
       <BrowserRouter>
         <CartContext>
-            <Header />
+            <NavBar />
             <Main />
-      
         </CartContext>
       </BrowserRouter>
 
