@@ -40,3 +40,9 @@ npm start
 * Toastify: Utilizada para la generación de alertas
 * React hooks forms: Utilizada para la implementación de un formulario de datos de usuario
 * Sass-loader ^12.3.0: Utilizada para compilar estilos
+
+
+## Muestra de funcionamiento
+
+https://user-images.githubusercontent.com/8164773/191029704-0ac84e34-a87c-4c37-b4da-e67e04a9a395.mp4
+
