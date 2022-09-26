@@ -11,7 +11,6 @@ const CartContext = (props) => {
 
     const agregarProducto = (item) => {
 
-        //const nuevoItem = [...item, cantidad]
 
         setCantidad(cantidad + item.cantidad)
 

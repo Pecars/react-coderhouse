@@ -8,7 +8,6 @@ function CartWidget() {
  const { cantidad } = useContext(contexto);
 
   
- console.log(cantidad)
     return (
         <>
         <p>

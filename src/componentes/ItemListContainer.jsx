@@ -10,7 +10,6 @@ import { collection, getDocs } from "firebase/firestore";
 const productosCollection = collection(db, "productos")
 
 
-
 function ItemListContainer(props) {
   const [itemes, setItemes] = useState([]);
   const [loading, setLoading] = useState(true)

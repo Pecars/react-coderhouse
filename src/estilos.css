@@ -32,6 +32,8 @@
 
 .item-list-container {
   display: flex;
+  flex-wrap: wrap;
+  width: 80%
 }
 
 .caja-contador-botones {
@@ -133,3 +135,5 @@
 }
 
 /*# sourceMappingURL=estilos.css.map */
+
+

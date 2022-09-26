@@ -7,7 +7,6 @@ import { contexto } from "./CartContext"
 
 
 function ItemDetail(item) {
-  console.log(item)
 
   item= item.item
  
@@ -15,13 +14,9 @@ function ItemDetail(item) {
 
   const onAdd=(contador)=>{
 
-    console.log("reacciona al evento")
     item.cantidad = contador
     agregarProducto(item)
-    console.log(item)
-    console.log(item.cantidad)
 
-    console.log(contexto)
   }
 
     return (
